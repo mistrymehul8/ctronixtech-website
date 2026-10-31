@@ -33,8 +33,8 @@ npm test           # type check + build + leak gate
 
 | Event | What runs |
 |---|---|
-| Pull request | `astro check`, build, **leak gate**, internal link check, Lighthouse (≥ 0.95 in every category), `npm audit`, gitleaks |
-| Merge to `main` | All of the above, then:<br>- the image is built once and smoke-tested (health, security headers, 404, non-root)<br>- Trivy scan (fails on fixable HIGH/CRITICAL)<br>- pushed to `ghcr.io/mistrymehul8/ctronixtech-website:1.0.<run>`<br>- **signed with cosign** (keyless, bound to this workflow), with an SPDX SBOM attested |
+| Pull request | `astro check`, build, **leak gate**, internal link check, Lighthouse (≥ 0.95 in every category), `npm audit`, gitleaks; the image is built and smoke-tested (health, security headers, 404, non-root) and scanned with Trivy (fails on fixable HIGH/CRITICAL) |
+| Merge to `main` | All of the above, then the image is:<br>- pushed to `ghcr.io/mistrymehul8/ctronixtech-website:1.0.<run>`<br>- **signed with cosign** (keyless, bound to this workflow), with an SPDX SBOM attested |
 | Deploy | The platform repository's Renovate updates the **staging** digest, and Argo CD deploys it. **Production** is a pull request that promotes the same digest. The cluster only runs images signed by this repository's `main` workflow |
 
 ### Leak gate
