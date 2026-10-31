@@ -8,6 +8,11 @@ COPY . .
 RUN npm run build
 
 FROM nginxinc/nginx-unprivileged:1.31.7-alpine3.24@sha256:b5047b9b76845eac124358373c6852377c52e4b05834a47647e955dd91cb8f1e
+# Patch OS packages the upstream image hasn't picked up yet, and drop curl:
+# nothing in the container needs it.
+USER root
+RUN apk upgrade --no-cache \
+ && apk del --no-cache curl
 COPY deploy/nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY deploy/nginx/security-headers.conf /etc/nginx/snippets/security-headers.conf
 COPY --from=build /src/dist /usr/share/nginx/html
