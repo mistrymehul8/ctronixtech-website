@@ -1,0 +1,22 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order);
+---
+<Base title="Projects" description="Case studies: Kubernetes platform, private family cloud, network as code and backup cost engineering.">
+  <section><div class="wrap">
+    <p class="eyebrow">Case studies</p>
+    <h1>Projects</h1>
+    <p class="lead">Each one follows the same shape: the problem, the design, the trade-offs, and the results in numbers.</p>
+    <div class="grid">
+      {projects.map((p) => (
+        <article class="card">
+          <h2 class="h3"><a class="stretched" href={`/projects/${p.id}/`}>{p.data.title}</a></h2>
+          <p>{p.data.summary}</p>
+          <ul class="tags">{p.data.tags.map((t) => <li>{t}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </div></section>
+</Base>
+<style>.h3 { font-size: 1.2rem; margin-top: 0; }</style>

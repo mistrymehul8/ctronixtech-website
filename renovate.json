@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests", ":pinDevDependencies"],
+  "dependencyDashboard": true,
+  "lockFileMaintenance": { "enabled": true, "schedule": ["before 6am on monday"] },
+  "packageRules": [
+    { "groupName": "astro", "matchPackageNames": ["astro", "@astrojs/{/,}**"] },
+    { "groupName": "base images", "matchDatasources": ["docker"] }
+  ]
+}

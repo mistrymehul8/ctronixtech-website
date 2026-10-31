@@ -1,0 +1,20 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap cols">
+    <p>© {year} Ctronix Tech. Built as code with open-source tools.</p>
+    <ul>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="/.well-known/security.txt">Security</a></li>
+      <li><a href="https://github.com/mistrymehul8/ctronixtech-website">Source</a></li>
+    </ul>
+  </div>
+</footer>
+<style>
+  .site-footer { border-top: 1px solid var(--c-border); margin-top: 3rem; color: var(--c-muted); font-size: 0.92rem; }
+  .cols { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+  ul { list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0; }
+  a { color: var(--c-muted); }
+  p { margin: 0; }
+</style>

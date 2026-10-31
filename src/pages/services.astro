@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+const services = [
+  { t: "Platform engineering and Kubernetes", d: "Design, build or rescue a Kubernetes platform: highly available, GitOps-driven, with policies, observability and upgrades that are routine instead of risky." },
+  { t: "Infrastructure as code and automation", d: "Terraform and Ansible for servers, clusters, clouds and network devices. Reviewed changes, dry runs, and a rebuild path you can trust." },
+  { t: "Backup, recovery and cloud cost", d: "Backup designs that are restore-tested, with lifecycle rules, budgets and alerts so storage costs stay predictable." },
+  { t: "Security and identity", d: "Single sign-on with MFA for every admin tool, least privilege, network isolation, secret management and vulnerability scanning." },
+  { t: "Secure networks and remote access", d: "Routers managed as code, WireGuard VPNs for teams, families and travel, split DNS, and firewall rules that are documented and tested." },
+  { t: "Private cloud for families and small teams", d: "Photos, files, office, passwords and documents on hardware you own, with the security and backups of a commercial service." },
+];
+---
+<Base title="Services" description="Platform engineering, infrastructure as code, backup and cost, security and identity, secure networks, private cloud.">
+  <section><div class="wrap">
+    <p class="eyebrow">Services</p>
+    <h1>What we can do for you</h1>
+    <p class="lead">Every engagement follows the same steps: assess what exists, agree on a plan with clear trade-offs, build it as code, and hand over documentation your team can run with.</p>
+    <div class="grid">{services.map((s) => <div class="card"><h2 class="h3">{s.t}</h2><p>{s.d}</p></div>)}</div>
+    <p><a class="btn" href="/contact/">Talk about a project</a></p>
+  </div></section>
+</Base>
+<style>.h3 { font-size: 1.2rem; margin-top: 0; } .grid { margin-bottom: 2rem; }</style>

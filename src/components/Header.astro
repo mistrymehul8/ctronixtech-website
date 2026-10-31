@@ -1,0 +1,32 @@
+---
+import Logo from "./Logo.astro";
+const nav = [
+  { href: "/services/", label: "Services" },
+  { href: "/projects/", label: "Projects" },
+  { href: "/blog/", label: "Blog" },
+  { href: "/about/", label: "About" },
+  { href: "/contact/", label: "Contact" },
+];
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/" aria-label="Ctronix Tech home"><Logo size={36} /><span>Ctronix <b>Tech</b></span></a>
+    <nav aria-label="Main">
+      <ul>
+        {nav.map((i) => (
+          <li><a href={i.href} aria-current={path.startsWith(i.href) ? "page" : undefined}>{i.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+<style>
+  .site-header { border-bottom: 1px solid var(--c-border); background: var(--c-surface); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 0.8rem; padding-bottom: 0.8rem; }
+  .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; color: var(--c-text); font-size: 1.2rem; font-weight: 500; }
+  .brand b { color: var(--c-accent); font-weight: 700; }
+  nav ul { display: flex; gap: 1.1rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav a { text-decoration: none; color: var(--c-muted); font-weight: 500; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--c-text); text-decoration: underline; }
+</style>

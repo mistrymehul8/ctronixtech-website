@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../site";
+---
+<Base title="About" description="About Ctronix Tech: platform engineering run like production.">
+  <section><div class="wrap prose">
+    <p class="eyebrow">About</p>
+    <h1>About Ctronix Tech</h1>
+    <p class="lead">Ctronix Tech is a platform engineering practice founded by {site.founder}.</p>
+    <p>We believe infrastructure should be boring in the best way: described in code, reviewed like code, secured by default, and recoverable on a bad day. The projects on this site, from a highly available Kubernetes platform to a family's private cloud and a router managed from Git, are run exactly that way, and their documentation is written for the next engineer.</p>
+    <h2>Principles</h2>
+    <ul>
+      <li><b>Everything as code.</b> If it isn't in Git, it doesn't exist.</li>
+      <li><b>Secure by default.</b> SSO with MFA, least privilege, deny by default.</li>
+      <li><b>Restore, don't hope.</b> Every backup type is tested by restoring it.</li>
+      <li><b>Open source first.</b> Tools you can inspect, run anywhere and keep.</li>
+    </ul>
+    <p><a href="/contact/">Get in touch</a> or <a href={site.github}>see the source on GitHub</a>.</p>
+  </div></section>
+</Base>

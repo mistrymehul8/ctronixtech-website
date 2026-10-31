@@ -1,0 +1,18 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../site";
+---
+<Base title="Privacy" description="Privacy policy for ctronixtech.com.">
+  <section><div class="wrap prose">
+    <p class="eyebrow">Privacy</p>
+    <h1>Privacy policy</h1>
+    <p>Last updated: 31 October 2026.</p>
+    <ul>
+      <li><b>No cookies, no trackers, no forms.</b> This site sets no cookies and runs no third-party scripts.</li>
+      <li><b>Visit statistics.</b> We use Cloudflare Web Analytics, which counts page views without cookies or fingerprinting and doesn't identify you.</li>
+      <li><b>Delivery.</b> The site is delivered through Cloudflare, which processes standard request data (such as IP address and browser type) to deliver and protect the site.</li>
+      <li><b>E-mail.</b> If you write to us, we use your message only to reply, and delete it when it's no longer needed.</li>
+    </ul>
+    <p>Questions: <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.</p>
+  </div></section>
+</Base>
