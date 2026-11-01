@@ -5,6 +5,11 @@
   "lockFileMaintenance": { "enabled": true, "schedule": ["before 6am on monday"] },
   "packageRules": [
     { "groupName": "astro", "matchPackageNames": ["astro", "@astrojs/{/,}**"] },
-    { "groupName": "base images", "matchDatasources": ["docker"] }
+    { "groupName": "base images", "matchDatasources": ["docker"] },
+    {
+      "description": "astro check (@astrojs/check) supports TypeScript up to 6. Remove when it supports 7.",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<7"
+    }
   ]
 }
