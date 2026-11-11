@@ -31,7 +31,7 @@ cluster. Daily, verified etcd snapshots are copied off-site.
 **Networking:**
 - **Cilium** for pod networking, network policies and flow visibility.
 - **Gateway API** with Traefik for routing, and **cert-manager** for automatic TLS (DNS-01 wildcard certificates).
-- **external-dns** publishes public names automatically, and follows a dynamic home IP.
+- **external-dns** publishes public names automatically. They point at an outbound-only tunnel, so the router has no open ports and the home IP isn't in DNS.
 
 **GitOps.** Argo CD deploys everything from a Git repository. Changes arrive
 as pull requests with automated checks, and syncs are deliberate, so nothing
