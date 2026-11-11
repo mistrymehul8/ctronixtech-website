@@ -1,7 +1,7 @@
 ---
 title: "Backup cost engineering: from ~74 to ~20 CAD a month"
 summary: "Designing off-site backup lifecycle for terabytes of family data under a fixed budget, without giving up restorability."
-order: 4
+order: 5
 tags: [Cloud cost, Backups, Azure, Lifecycle management, FinOps]
 stats:
   - { value: "~74 → ~20", label: "CAD / month at 2.4 TB" }

@@ -1,10 +1,10 @@
 ---
 title: "CtronixCloud: a private cloud for a family"
-summary: "Photos, files, office documents, passwords, paperwork and budgeting, self-hosted on Kubernetes with SSO, VPN-only access and restore-tested backups."
+summary: "Photos, files, office documents, passwords, paperwork, budgeting and file sharing, self-hosted on Kubernetes with SSO, VPN-only access and restore-tested backups."
 order: 2
 tags: [Self-hosting, Privacy, Immich, Nextcloud, Vaultwarden, Backups]
 stats:
-  - { value: "6 apps", label: "photos, files, office, passwords, documents, budget" }
+  - { value: "7 apps", label: "photos, files, office, passwords, documents, budget, file links" }
   - { value: "VPN-only", label: "no app is on the public internet" }
   - { value: "7 / 5 / 6", label: "daily / weekly / monthly backups" }
   - { value: "Tested", label: "restore of every app before real data" }
@@ -30,10 +30,11 @@ CtronixCloud runs on the same Kubernetes platform as the
 | Passwords | Vaultwarden (Bitwarden-compatible) |
 | Paperwork, with OCR and full-text search | Paperless-ngx |
 | Household budget | Actual Budget |
+| Sending large files by link | Gokapi |
 
 **Access:**
 - **Family devices only:** the apps are reachable through a WireGuard VPN that only allows the app gateway, with DNS split so the same names work at home and away.
-- **Not on the public internet:** no app is exposed. The one public piece is a share-only proxy for photo albums, rate-limited and limited to share links.
+- **Not on the public internet:** no app is exposed. The only public pieces are a share-only proxy for photo albums and the download pages for file links, both rate-limited and limited to the links themselves. Uploading and managing links needs the VPN and a login.
 - **One identity:** single sign-on through Authentik, including in the mobile apps where supported.
 
 **Every app runs locked down:**

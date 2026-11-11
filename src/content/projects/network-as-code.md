@@ -1,7 +1,7 @@
 ---
 title: "Network as code: a router you can rebuild in minutes"
 summary: "The whole router configuration in Git, applied over the API with drift detection, encrypted backups and a travel VPN that makes anywhere feel like home."
-order: 3
+order: 4
 tags: [Networking, MikroTik, WireGuard, Ansible, Infrastructure as code]
 stats:
   - { value: "37", label: "configuration sections in Git" }
@@ -37,6 +37,12 @@ sends all traffic through the home connection.
 - **Same as home:** the same IP address and DNS as at home.
 - **Fallback port:** a second port for networks that block unusual UDP ports.
 - **No IPv6 leaks:** IPv6 is blocked inside the tunnel.
+
+**Isolating the cameras.** Security cameras are the least trustworthy devices
+on the network, and the switch they use can't do VLANs. So the router gives
+them a dedicated address range and drops everything they send beyond the
+LAN: no internet, no VPN, not even the router's DNS. Only the recorder talks
+to them ([Home cameras without the cloud](/projects/home-cctv/)).
 
 ## Lessons worth sharing
 
